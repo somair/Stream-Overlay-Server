@@ -1,0 +1,10 @@
+<h1>Your follows:</h1>
+{% if data %}
+<ul>
+  {% for follow in data.follows %}
+  <li>
+    {{ follow.user.display_name }}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
