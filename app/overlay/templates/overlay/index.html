@@ -1,10 +1,38 @@
-<h1>Your follows:</h1>
-{% if data %}
-<ul>
-  {% for follow in data.follows %}
-  <li>
-    {{ follow.user.display_name }}
-  </li>
-  {% endfor %}
-</ul>
+<style>
+  h1 { text-align: center }
+  .section { display: inline-block; width: 40% }
+</style>
+
+<h1>Stream Overlay Data Check</h1>
+
+{% if channel %}
+<div class='section'>
+  <img src='{{ channel.logo }}' />
+  <h3>Channel</h3>
+  <p>
+    {{ channel.display_name }}
+  </p>
+  <h3>Total Views</h3>
+  <p>
+    {{ channel.views }}
+  </p>
+  <h3>Follower Count</h3>
+  <p>
+    {{ channel.followers }}
+  </p>
+</div>
+{% endif %}
+
+
+{% if channel_follows %}
+<div class='section'>
+  <h3>Channel followers</h3>
+  <ul>
+    {% for follow in channel_follows %}
+    <li>
+      {{ follow.user.display_name }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 {% endif %}
